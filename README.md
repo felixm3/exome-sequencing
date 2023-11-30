@@ -10,7 +10,7 @@ I wrote this SLURM bash script to automate a workflow for Whole Exome Sequencing
   - Aligns trimmed reads to a human reference genome (GRCh38) using BWA-MEM.
 - **Mark Duplicates**: Uses GATK's MarkDuplicatesSpark to mark PCR duplicates in the aligned BAM files.
 - **Variant Calling**:
-  - Uses bcftools mpileup and bcftools call to call variants from the aligned and marked BAM files.
+  - Uses bcftools mpileup and bcftools call to call variants from the aligned and marked BAM files. The variant calling parameters were selected to prioritize heightened sensitivity, even though this might result in increased false positives. The intention is to subsequently employ machine learning models to filter out these false positives.
 - **Variant Subsetting**:
   - Intersects the called variants with vendor exome regions BED and Genome-in-a-Bottle (GIAB) high-confidence BED files using bedtools intersect to subset variants to those within specific regions. The intersection with the GIAB high-confidence BED file is to enable determination of false positive and false negative variant calls for the purpose of building machine learning models to mitigate the artifacts.
 - **Output**: Generates intermediate files for each step placing them in their respective folders.
