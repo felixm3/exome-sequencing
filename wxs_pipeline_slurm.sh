@@ -212,7 +212,7 @@ echo -e "\n VCF intersection with bedtools intersect complete. Results are in $o
 
 echo -e "\n WORKFLOW COMPLETE \n"
 
-##################
+###################
 
 echo ""
 end=$(date +%s)
