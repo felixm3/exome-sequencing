@@ -227,4 +227,3 @@ echo "total run time(m): $runtime_m"
 runtime_h=$(echo "scale=2; $runtime_s / $sec_per_hr;" | bc)
 echo "total run time(h): $runtime_h"
 
-
